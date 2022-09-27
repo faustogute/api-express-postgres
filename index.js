@@ -1,6 +1,11 @@
-const { application } = require('express')
 const express = require('express')
 const app = express()
+const router = require('./routes')
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+app.use(router)
 
 app.listen(3000, (error) => {
   error ? console.error(error) : console.log('Server running')
